@@ -13,9 +13,9 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveSpeed = 8f;
     [SerializeField] private float jumpStrength = 8f;
     [SerializeField] private LayerMask jumpableSurface;
+    [SerializeField] private AudioSource SoundEffJump;
 
     private enum MovementState { idle, running, jumping, falling }
-    // private MovementState state = MovementState.idle;
 
     // Start is called before the first frame update
     private void Start()
@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour
             // Jump input
             if (Input.GetButtonDown("Jump") && IsTouchingGround())
             {
+                SoundEffJump.Play();
                 rb.velocity = new Vector2(rb.velocity.x, jumpStrength);
             }
 
@@ -82,5 +83,4 @@ public class PlayerMovement : MonoBehaviour
     {
         return Physics2D.BoxCast(bc.bounds.center, bc.bounds.size, 0f, Vector2.down, 0.1f, jumpableSurface);
     }
-
 }

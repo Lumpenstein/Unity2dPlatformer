@@ -9,6 +9,8 @@ public class PlayerHealth : MonoBehaviour
     private Animator ani;
     private Rigidbody2D rb;
 
+    [SerializeField] private AudioSource SoundEffDeath;
+
     void Start()
     {
         ani = GetComponent<Animator>();
@@ -28,6 +30,7 @@ public class PlayerHealth : MonoBehaviour
     private void Die()
     {
         Debug.Log("Dying");
+        SoundEffDeath.Play();
         rb.bodyType = RigidbodyType2D.Static;
         ani.SetTrigger("death");
     }
@@ -36,5 +39,4 @@ public class PlayerHealth : MonoBehaviour
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
-
 }

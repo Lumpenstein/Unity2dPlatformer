@@ -9,7 +9,9 @@ public class ItemCollect : MonoBehaviour
     private int collectedBananas = 0;
 
     [SerializeField] private Text pointCounterText;
-    
+
+    [SerializeField] private AudioSource SoundEffCollect;
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("Banana"))
@@ -18,8 +20,8 @@ public class ItemCollect : MonoBehaviour
             Destroy(collision.gameObject);
             // Increment counter
             collectedBananas++;
+            SoundEffCollect.Play();
             pointCounterText.text = "Points: " + collectedBananas * 10;
         }
     }
-
 }
