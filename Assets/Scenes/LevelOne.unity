@@ -23451,5 +23451,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Flag
       objectReference: {fileID: 0}
+    - target: {fileID: 6835326259506834031, guid: 0a8b2ec9dfb71a8498f4b3df6e269373, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0a8b2ec9dfb71a8498f4b3df6e269373, type: 3}
